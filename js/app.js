@@ -16,8 +16,8 @@
 
 /*Define Global Variables*/
 
-const navSections = document.querySelectorAll('section')
-const navBar = document.getElementById('navbar__list')
+const navSections = document.querySelectorAll('section');
+const navBar = document.getElementById('navbar__list');
 
 
 /**
@@ -40,19 +40,23 @@ navSections.forEach(i => {
   })
 
 // Add class 'active' to section when near top of viewport
+const activeClasses = document.querySelectorAll('.menu__link');
 
-/* #2 practice code from feedback */
-const activeClass = document.querySelectorAll('.menu__link');
-
-for (const activeClass of activeClasses) {
-    activeClass.addEventListener('click', function(event) {
+for (x of activeClasses) {
+    x.addEventListener('click', function(event) {
         event.preventDefault();
-        activeClass.removeClass('active');
+        x.removeClass('active');
         $(this).addClass('active');
 });
-} 
+}
 
 // Scroll to anchor ID using scrollTO event
+navBar.addEventListener('click', e => {
+    e.preventDefault();
+    const parent = e.target.hasAttribute('data-link') ? e.target : e.target.parentElement;
+    const elementToScrollTo = document.getElementById(parent.dataset.link);
+    elementToScrollTo.scrollIntoView({block: 'end', behavior: 'smooth'});
+});
 
 
 /**
