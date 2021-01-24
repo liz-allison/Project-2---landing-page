@@ -193,8 +193,7 @@ section:nth-of-type(3n + 1) .landing__container::after {
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 .active {
-    background-color: #ea01ff;
-    color: #fff;
+    background-color: #9dcca2;
     text-transform: uppercase;
 }
 
