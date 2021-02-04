@@ -65,9 +65,12 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
-    padding-left: 0;
+    padding: 0;
     margin: 0;
     text-align: right;
+    display: flex;
+    flex-direction: row;
+    float: right;
 }
 
 .navbar__menu li {
@@ -79,7 +82,7 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: rgb(0, 0, 0);
 }
 
 .navbar__menu .menu__link:hover {
@@ -192,11 +195,10 @@ section:nth-of-type(3n + 1) .landing__container::after {
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
-.active {
+.active, .your-active-class {
     background-color: #9dcca2;
     text-transform: uppercase;
 }
-
 
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
 section.your-active-class {
