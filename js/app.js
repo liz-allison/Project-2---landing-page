@@ -13,22 +13,14 @@
  * 
 */
 
-
 /*Define Global Variables*/
 
 const navSections = document.querySelectorAll('section');
 const navBar = document.getElementById('navbar__list');
 
-
 /**
  * End Global Variables
- * Start Helper Functions
- * 
-*/
 
-
-/**
- * End Helper Functions
  * Begin Main Functions
  * 
 */
@@ -39,13 +31,30 @@ navSections.forEach(i => {
     navBar.insertAdjacentHTML('beforeend', navlistElement)
 })
 
- // Add class 'active' to section when near top of viewport
-navBar.addEventListener('click', e => {
-    e.preventDefault();
-    navBar.querySelector('.active')?.classList.remove('active');
-    e.target.classList.add('active');
-});
+/*event listener added here*/
+  document.addEventListener('scroll', function() {
+    activeSection();
+  })
+  document.addEventListener('click',function(){
+    activeSection();
+  })
 
+//While scrolling through the page, section in viewport highlights same section in navbar
+let activeSection = () => {
+    for (let i =0; i < navSections.length; i++) {
+        const section = navSections[i];
+        const links = document.querySelectorAll('li');
+        const selectedLink = links[i];
+        const view = section.getBoundingClientRect();
+        if (view.top <=150 && view.bottom >= 150) {
+            section.classList.add("your-active-class");
+            selectedLink.classList.add("your-active-class");
+        } else {
+            section.classList.remove("your-active-class");
+            selectedLink.classList.remove("your-active-class");   
+        }
+    }
+  }
 
 // Scroll to anchor ID using scrollTO event
 navBar.addEventListener('click', e => {
@@ -55,15 +64,16 @@ navBar.addEventListener('click', e => {
     elementToScrollTo.scrollIntoView({block: 'end', behavior: 'smooth'});
 });
 
+//section as active when the user scrolls to it.
+document.addEventListener('scroll', function scrolling() {
+  navSections.forEach((section) => {
+    if (isInViewport(section)) {
+      navBar.classList.add('active');
+    } else {
+      navBar.classList.remove('active');
+    }
+  });
+});
 
 /**
  * End Main Functions
- * Begin Events
- * 
-*/
-
-// Build menu 
-
-// Scroll to section on link click
-
-// Set sections as active
