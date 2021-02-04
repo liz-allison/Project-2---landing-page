@@ -1,4 +1,4 @@
-/**
+/*
  * 
  * Manipulating the DOM exercise.
  * Exercise programmatically builds navigation,
@@ -13,17 +13,16 @@
  * 
 */
 
-/*Define Global Variables*/
+//Define Global Variables
 
 const navSections = document.querySelectorAll('section');
 const navBar = document.getElementById('navbar__list');
 
-/**
- * End Global Variables
 
- * Begin Main Functions
- * 
-*/
+//End Global Variables
+
+//Begin Main Functions
+
 
 // build the nav
 navSections.forEach(i => {
@@ -75,5 +74,5 @@ document.addEventListener('scroll', function scrolling() {
   });
 });
 
-/**
- * End Main Functions
+
+//End Main Functions
